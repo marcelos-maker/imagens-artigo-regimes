@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modelo Conceitual Integrado – Regimes Jurídicos e Clima Organizacional em Hospitais de Ensino</title>
+<style>
+  :root{
+    --coral:#F5C4B3;--coral-t:#7A2E14;--coral-b:#E89070;
+    --blue:#B5D4F4;--blue-t:#0C447C;--blue-b:#88B8E8;
+    --purple:#CECBF6;--purple-t:#3C3489;--purple-b:#A8A4E8;
+    --teal:#9FE1CB;--teal-t:#085041;--teal-b:#6ECDB5;
+    --gray-bg:#F5F3EC;--gray-t:#3A3A38;--gray-b:#888780;
+    --white:#FFFFFF;--modal-bg:rgba(20,20,20,.55);
+    --radius:10px;--shadow:0 4px 24px rgba(0,0,0,.13);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia',serif;background:#EDEAE0;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 12px 48px}
+  h1{font-size:1rem;color:var(--gray-t);text-align:center;max-width:780px;line-height:1.5;margin-bottom:6px;font-weight:normal;font-style:italic}
+  .subtitle{font-size:.78rem;color:var(--gray-b);text-align:center;margin-bottom:20px}
+  .hint{font-size:.75rem;color:var(--gray-b);text-align:center;margin-bottom:14px;letter-spacing:.02em}
+  .figure-wrap{background:white;border-radius:16px;box-shadow:var(--shadow);padding:20px 16px 12px;max-width:820px;width:100%}
+  svg.model{width:100%;height:auto;display:block}
+  .node{cursor:pointer;transition:filter .15s}
+  .node:hover rect,.node:hover .nbox{filter:brightness(.92);stroke-width:1.5!important}
+  .node:focus rect,.node:focus .nbox{outline:2px solid #3C3489;outline-offset:2px}
+  .caption{font-size:.72rem;color:var(--gray-b);text-align:center;margin-top:10px;font-style:italic}
+  /* Modal */
+  .overlay{position:fixed;inset:0;background:var(--modal-bg);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px;opacity:0;pointer-events:none;transition:opacity .2s}
+  .overlay.open{opacity:1;pointer-events:all}
+  .modal{background:white;border-radius:14px;max-width:520px;width:100%;padding:28px 26px 22px;box-shadow:0 8px 40px rgba(0,0,0,.22);position:relative;transform:translateY(12px);transition:transform .2s}
+  .overlay.open .modal{transform:translateY(0)}
+  .modal-accent{height:5px;border-radius:4px;margin-bottom:18px}
+  .modal h2{font-size:1.05rem;color:var(--gray-t);margin-bottom:4px;line-height:1.35}
+  .modal .ref{font-size:.8rem;color:var(--gray-b);font-style:italic;margin-bottom:14px}
+  .modal p{font-size:.88rem;color:var(--gray-t);line-height:1.65;margin-bottom:10px}
+  .modal-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--gray-b);line-height:1;padding:4px 6px;border-radius:6px}
+  .modal-close:hover{background:#F0EEE6;color:var(--gray-t)}
+  footer{font-size:.72rem;color:var(--gray-b);text-align:center;margin-top:28px;max-width:780px;line-height:1.6}
+  @media print{body{background:white;padding:0}.figure-wrap{box-shadow:none;border:1px solid #ccc}.node{cursor:default}.hint,.subtitle{display:none}}
+</style>
+</head>
+<body>
+<h1>Modelo Conceitual Integrado: Regimes Jurídicos de Vínculo e Clima Organizacional em Hospitais Universitários Federais Brasileiros</h1>
+<p class="subtitle">Clique em qualquer elemento do diagrama para ver a fundamentação teórica.</p>
+<p class="hint">▸ clique em qualquer caixa colorida</p>
+
+<div class="figure-wrap">
+<svg class="model" viewBox="0 0 680 545" role="img" aria-label="Modelo conceitual integrado">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1.5L8 5L2 8.5" fill="none" stroke="#888780" stroke-width="1.4" stroke-linecap="round"/>
+  </marker>
+</defs>
+
+<!-- Context frame -->
+<rect x="18" y="16" width="644" height="514" rx="14" fill="none" stroke="#CCCAC0" stroke-width="1" stroke-dasharray="7 4"/>
+<text x="340" y="33" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" fill="#888780" font-style="italic">Hospitais Universitários Federais (SUS / Ebserh)</text>
+
+<!-- Variável central pill -->
+<rect x="245" y="41" width="190" height="22" rx="11" fill="#F0EEE6"/>
+<text x="340" y="56" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#888780" font-style="italic">Variável central</text>
+
+<!-- Row 1: Regimes -->
+<g class="node" tabindex="0" role="button" aria-label="Regime celetista CLT" onclick="openModal('clt')">
+  <rect x="50" y="70" width="196" height="66" rx="9" fill="#F5C4B3" stroke="#E89070" stroke-width="0.8"/>
+  <text x="148" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#7A2E14">Regime celetista</text>
+  <text x="148" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#7A2E14">(CLT / Ebserh)</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Regime estatutário RJU" onclick="openModal('rju')">
+  <rect x="434" y="70" width="196" height="66" rx="9" fill="#B5D4F4" stroke="#88B8E8" stroke-width="0.8"/>
+  <text x="532" y="98" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#0C447C">Regime estatutário</text>
+  <text x="532" y="117" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#0C447C">(RJU / Lei 8.112/1990)</text>
+</g>
+
+<!-- Double arrow + coexistência label -->
+<line x1="248" y1="103" x2="432" y2="103" stroke="#AAAAAA" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+<g class="node" tabindex="0" role="button" aria-label="Coexistência tensionada" onclick="openModal('coex')">
+  <rect x="276" y="93" width="128" height="20" rx="5" fill="white" stroke="#CCCAC0" stroke-width="0.8"/>
+  <text x="340" y="107" text-anchor="middle" font-family="Georgia,serif" font-size="9" fill="#666" font-style="italic">Coexistência tensionada</text>
+</g>
+
+<!-- Arrow row1→row2 -->
+<line x1="340" y1="136" x2="340" y2="155" stroke="#AAAAAA" stroke-width="1" marker-end="url(#arr)"/>
+
+<!-- Mecanismos pill -->
+<rect x="178" y="157" width="324" height="22" rx="11" fill="#F0EEE6"/>
+<text x="340" y="172" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#888780" font-style="italic">Mecanismos mediadores</text>
+
+<!-- Row 2: 2x2 mechanism grid -->
+<g class="node" tabindex="0" role="button" aria-label="Equidade organizacional Greenberg 1990" onclick="openModal('greenberg')">
+  <rect x="40" y="185" width="244" height="64" rx="9" fill="#CECBF6" stroke="#A8A4E8" stroke-width="0.8"/>
+  <text x="162" y="210" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#3C3489">Equidade organizacional</text>
+  <text x="162" y="229" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#3C3489" font-style="italic">Greenberg (1990)</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Motivação e engajamento Vroom 1964" onclick="openModal('vroom')">
+  <rect x="396" y="185" width="244" height="64" rx="9" fill="#CECBF6" stroke="#A8A4E8" stroke-width="0.8"/>
+  <text x="518" y="210" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#3C3489">Motivação e engajamento</text>
+  <text x="518" y="229" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#3C3489" font-style="italic">Vroom (1964)</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Legitimidade institucional Scott 2014" onclick="openModal('scott')">
+  <rect x="40" y="261" width="244" height="64" rx="9" fill="#CECBF6" stroke="#A8A4E8" stroke-width="0.8"/>
+  <text x="162" y="286" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#3C3489">Legitimidade institucional</text>
+  <text x="162" y="305" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#3C3489" font-style="italic">Scott (2014)</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Sistemas sociotécnicos Trist Emery 1960" onclick="openModal('trist')">
+  <rect x="396" y="261" width="244" height="64" rx="9" fill="#CECBF6" stroke="#A8A4E8" stroke-width="0.8"/>
+  <text x="518" y="286" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#3C3489">Sistemas sociotécnicos</text>
+  <text x="518" y="305" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#3C3489" font-style="italic">Trist &amp; Emery (1960)</text>
+</g>
+
+<!-- Arrow row2→row3 -->
+<line x1="340" y1="325" x2="340" y2="344" stroke="#AAAAAA" stroke-width="1" marker-end="url(#arr)"/>
+
+<!-- Row 3: Clima -->
+<g class="node" tabindex="0" role="button" aria-label="Clima organizacional" onclick="openModal('clima')">
+  <rect x="80" y="346" width="520" height="68" rx="9" fill="#9FE1CB" stroke="#6ECDB5" stroke-width="0.8"/>
+  <text x="340" y="371" text-anchor="middle" font-family="Georgia,serif" font-size="12" font-weight="bold" fill="#085041">Clima organizacional</text>
+  <text x="340" y="393" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#085041">Liderança · coesão · comunicação · satisfação · segurança</text>
+</g>
+
+<!-- Arrow row3→row4 -->
+<line x1="340" y1="414" x2="340" y2="430" stroke="#AAAAAA" stroke-width="1" marker-end="url(#arr)"/>
+
+<!-- Resultados pill -->
+<rect x="205" y="432" width="270" height="22" rx="11" fill="#F0EEE6"/>
+<text x="340" y="447" text-anchor="middle" font-family="Georgia,serif" font-size="9.5" fill="#888780" font-style="italic">Resultados assistenciais</text>
+
+<!-- Row 4: Results -->
+<g class="node" tabindex="0" role="button" aria-label="Qualidade assistencial" onclick="openModal('qualidade')">
+  <rect x="38" y="458" width="180" height="44" rx="9" fill="#9FE1CB" stroke="#6ECDB5" stroke-width="0.8"/>
+  <text x="128" y="484" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="bold" fill="#085041">Qualidade assistencial</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Retenção profissional" onclick="openModal('retencao')">
+  <rect x="250" y="458" width="180" height="44" rx="9" fill="#9FE1CB" stroke="#6ECDB5" stroke-width="0.8"/>
+  <text x="340" y="484" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="bold" fill="#085041">Retenção profissional</text>
+</g>
+
+<g class="node" tabindex="0" role="button" aria-label="Segurança do paciente" onclick="openModal('seguranca')">
+  <rect x="462" y="458" width="180" height="44" rx="9" fill="#9FE1CB" stroke="#6ECDB5" stroke-width="0.8"/>
+  <text x="552" y="484" text-anchor="middle" font-family="Georgia,serif" font-size="10.5" font-weight="bold" fill="#085041">Segurança do paciente</text>
+</g>
+
+<text x="340" y="528" text-anchor="middle" font-family="Georgia,serif" font-size="8.5" fill="#AAAAAA" font-style="italic">Fonte: elaborado pelos autores a partir de Greenberg (1990), Vroom (1964), Scott (2014) e Trist &amp; Emery (1960).</text>
+</svg>
+<p class="caption">Figura 1 – Modelo conceitual integrado: regimes jurídicos de vínculo e clima organizacional em hospitais universitários federais brasileiros.</p>
+</div>
+
+<!-- Modal overlay -->
+<div class="overlay" id="overlay" onclick="closeModal(event)">
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="modal-close" onclick="closeModal()" aria-label="Fechar">×</button>
+  <div class="modal-accent" id="modal-accent"></div>
+  <h2 id="modal-title"></h2>
+  <p class="ref" id="modal-ref"></p>
+  <div id="modal-body"></div>
+</div>
+</div>
+
+<footer>
+  Elaborado por Erivan de Sena Ramos. Artigo submetido a periódico de saúde coletiva.<br>
+  Para citar este modelo: ver referência completa no manuscrito.<br>
+  <em>Versão interativa disponível neste endereço. Versão estática impressa na Figura 1 do artigo.</em>
+</footer>
+
+<script>
+const DATA = {
+  clt:{
+    color:'#E89070',title:'Regime Celetista (CLT / Ebserh)',
+    ref:'Brasil, 2011; Delgado, 2019; Di Pietro, 2018',
+    body:`<p>O regime celetista, regulado pela Consolidação das Leis do Trabalho (CLT), tornou-se o vínculo jurídico dos trabalhadores contratados pela Empresa Brasileira de Serviços Hospitalares (Ebserh), criada pela Lei n.º 12.550/2011.</p>
+    <p>Desde então, a Ebserh assumiu progressivamente a gestão dos hospitais universitários federais, introduzindo vínculos celetistas em contextos organizacionais historicamente compostos por servidores estatutários. Esse regime oferece maior flexibilidade gerencial à instituição, mas também é percebido por parte dos trabalhadores como um arranjo de menor estabilidade, com diferenças significativas em remuneração, benefícios previdenciários e progressão de carreira em relação ao regime anterior.</p>`
+  },
+  rju:{
+    color:'#88B8E8',title:'Regime Estatutário (RJU / Lei 8.112/1990)',
+    ref:'Brasil, 1990; Meirelles, 2016; Di Pietro, 2018',
+    body:`<p>O Regime Jurídico Único (RJU), estabelecido pela Lei n.º 8.112/1990, rege os servidores públicos federais estáveis, assegurando-lhes estabilidade no cargo, aposentadoria pelo Regime Próprio de Previdência Social (RPPS) e um conjunto de direitos e deveres próprios do serviço público.</p>
+    <p>Nos hospitais universitários federais, os servidores estatutários convivem com trabalhadores celetistas da Ebserh, gerando assimetrias perceptíveis em direitos, remuneração, jornada e oportunidades de desenvolvimento profissional — assimetrias que, conforme a literatura, impactam diretamente o clima organizacional e o senso de pertencimento à instituição.</p>`
+  },
+  coex:{
+    color:'#CCCAC0',title:'Coexistência Tensionada',
+    ref:'Aquino, 2021; Daneliu et al., 2019; Vieira, 2017',
+    body:`<p>A coexistência simultânea de dois regimes jurídicos distintos em um mesmo ambiente organizacional é identificada pela literatura como fonte significativa de conflitos perceptivos, relacionais e identitários. Diferenças em remuneração, benefícios, estabilidade, jornada e oportunidades de desenvolvimento profissional criam percepções de injustiça que fragilizam a coesão da equipe.</p>
+    <p>Estudos realizados em hospitais universitários brasileiros no período pós-Ebserh (Aquino, 2021; Daneliu et al., 2019; Vieira, 2017) descrevem tensões concretas entre grupos de trabalhadores, com reflexos mensuráveis no clima organizacional, na comunicação interprofissional e nos indicadores de qualidade assistencial.</p>`
+  },
+  greenberg:{
+    color:'#A8A4E8',title:'Equidade Organizacional',
+    ref:'Greenberg, J. (1990)',
+    body:`<p>A teoria da justiça organizacional (Greenberg, 1990) examina as percepções de equidade no ambiente de trabalho em três dimensões complementares:</p>
+    <p><strong>Justiça distributiva</strong> — percepção sobre se a distribuição de recompensas e sanções é justa em relação ao esforço e à contribuição individual; <strong>Justiça processual</strong> — percepção sobre a equidade dos processos decisórios e das regras institucionais; <strong>Justiça interacional</strong> — percepção sobre o respeito e a dignidade no tratamento interpessoal cotidiano.</p>
+    <p>Em contextos de coexistência de regimes, as assimetrias formais de direitos e remuneração tendem a gerar percepções sistemáticas de injustiça distributiva, com efeitos negativos sobre satisfação, comprometimento e comportamentos de cidadania organizacional.</p>`
+  },
+  vroom:{
+    color:'#A8A4E8',title:'Motivação e Engajamento',
+    ref:'Vroom, V. H. (1964)',
+    body:`<p>A teoria da expectância de Vroom (1964) propõe que a motivação é função de três componentes multiplicativos:</p>
+    <p><strong>Expectativa</strong> — crença de que o esforço pessoal levará a um desempenho superior; <strong>Instrumentalidade</strong> — crença de que o desempenho superior levará a recompensas concretas; <strong>Valência</strong> — valor subjetivo atribuído a essas recompensas.</p>
+    <p>Em hospitais com coexistência de regimes, trabalhadores celetistas e estatutários podem diferir significativamente em suas expectativas e valências percebidas — especialmente quanto às possibilidades de progressão na carreira e reconhecimento institucional — afetando de forma diferenciada o nível de engajamento de cada grupo e, por consequência, o clima coletivo da equipe.</p>`
+  },
+  scott:{
+    color:'#A8A4E8',title:'Legitimidade Institucional',
+    ref:'Scott, W. R. (2014)',
+    body:`<p>A teoria institucional de Scott (2014) analisa como as organizações buscam legitimidade respondendo a pressões exercidas por três pilares do ambiente institucional:</p>
+    <p><strong>Pilar regulativo</strong> — normas legais, contratos e sanções formais; <strong>Pilar normativo</strong> — valores, expectativas profissionais e padrões de conduta; <strong>Pilar cultural-cognitivo</strong> — crenças compartilhadas e esquemas interpretativos construídos ao longo do tempo.</p>
+    <p>A introdução do modelo Ebserh representou uma ruptura no pilar regulativo que coexiste com os pilares normativos e culturais consolidados pelos servidores estatutários ao longo de décadas. Essa tensão entre lógicas institucionais distintas influencia percepções de identidade organizacional, de pertencimento e de legitimidade das decisões de gestão.</p>`
+  },
+  trist:{
+    color:'#A8A4E8',title:'Sistemas Sociotécnicos',
+    ref:'Trist, E.; Emery, F. (1960)',
+    body:`<p>A abordagem sociotécnica (Trist & Emery, 1960), desenvolvida no Tavistock Institute, compreende as organizações como sistemas abertos compostos por dois subsistemas interdependentes: o <strong>técnico</strong> (tecnologias, processos, ferramentas, fluxos de trabalho) e o <strong>social</strong> (relações interpessoais, identidades, vínculos, cultura).</p>
+    <p>Mudanças significativas em um subsistema inevitavelmente perturbam o outro. A introdução de novos vínculos jurídicos (mudança no subsistema social) altera percepções de identidade profissional, dinâmicas relacionais e modos de coordenação do trabalho — repercutindo sobre os processos técnicos de cuidado. O modelo prevê que a otimização conjunta dos dois subsistemas é condição necessária para desempenho organizacional sustentável.</p>`
+  },
+  clima:{
+    color:'#6ECDB5',title:'Clima Organizacional',
+    ref:'Schneider, Ehrhart & Macey (2013); Bispo (2006)',
+    body:`<p>Schneider, Ehrhart e Macey (2013) definem clima organizacional como as percepções compartilhadas pelos membros de uma organização sobre as políticas, práticas e procedimentos formais e informais que os recompensam, apoiam e esperam deles. Diferentemente de cultura organizacional — que é mais profunda e estável —, o clima é diretamente mensurável e responsivo a intervenções gerenciais.</p>
+    <p>Neste modelo, cinco dimensões são centrais para a avaliação do clima em hospitais universitários: (1) <strong>Liderança</strong> — qualidade do suporte e da comunicação das chefias; (2) <strong>Coesão de equipe</strong> — senso de pertencimento e cooperação interprofissional; (3) <strong>Comunicação organizacional</strong> — transparência e fluxo de informações; (4) <strong>Satisfação no trabalho</strong> — percepção de bem-estar, realização e reconhecimento; (5) <strong>Segurança do paciente</strong> — percepção do comprometimento institucional com a segurança.</p>`
+  },
+  qualidade:{
+    color:'#6ECDB5',title:'Qualidade Assistencial',
+    ref:'Braithwaite et al. (2017); Faraco et al. (2022)',
+    body:`<p>Ambientes organizacionais saudáveis, caracterizados por clima favorável, estão associados na literatura a melhores indicadores de qualidade assistencial: menor taxa de infecções hospitalares, menor ocorrência de eventos adversos, maior adesão a protocolos clínicos e melhor experiência reportada pelos pacientes.</p>
+    <p>A revisão sistemática de Braithwaite et al. (2017) demonstrou que culturas organizacionais positivas estão associadas a melhores resultados clínicos em múltiplos sistemas de saúde. No contexto brasileiro, estudos em hospitais universitários evidenciam que tensões decorrentes da coexistência de regimes jurídicos podem fragmentar processos assistenciais e comprometer indicadores de qualidade.</p>`
+  },
+  retencao:{
+    color:'#6ECDB5',title:'Retenção Profissional',
+    ref:'Bracarense et al. (2022); Matos & Araújo (2021)',
+    body:`<p>O clima organizacional é reconhecido como um dos principais preditores da intenção de permanência dos profissionais de saúde. Bracarense et al. (2022) identificaram associação direta entre clima organizacional percebido e intenção de rotatividade entre enfermeiros de hospitais públicos. Matos e Araújo (2021) evidenciaram que vulnerabilidade ao estresse e percepção de baixo suporte institucional amplificam a intenção de saída.</p>
+    <p>Em contextos de coexistência de regimes, trabalhadores celetistas — especialmente os mais qualificados e com maior mobilidade no mercado — tendem a apresentar maior propensão à saída quando percebem assimetrias de tratamento ou perspectivas limitadas de crescimento, elevando os custos organizacionais e sociais de reposição.</p>`
+  },
+  seguranca:{
+    color:'#6ECDB5',title:'Segurança do Paciente',
+    ref:'Magalhães et al. (2019); Aiken et al. (2014)',
+    body:`<p>A segurança do paciente é reconhecida como resultado diretamente sensível ao clima organizacional. Magalhães et al. (2019) encontraram associação entre clima de segurança percebido e indicadores de qualidade assistencial em hospital de ensino brasileiro. Viana et al. (2020) identificaram diferenças significativas no clima de segurança entre categorias profissionais com vínculos jurídicos distintos.</p>
+    <p>Aiken et al. (2014), em estudo com mais de 400 hospitais europeus, demonstraram que ambientes de trabalho favoráveis reduzem a mortalidade hospitalar de forma estatisticamente significativa. A fragmentação organizacional decorrente da coexistência de regimes pode comprometer a comunicação entre equipes, a notificação de incidentes e, por consequência, a segurança dos pacientes.</p>`
+  }
+};
+
+function openModal(key){
+  const d=DATA[key];
+  document.getElementById('modal-accent').style.background=d.color;
+  document.getElementById('modal-title').textContent=d.title;
+  document.getElementById('modal-ref').textContent=d.ref;
+  document.getElementById('modal-body').innerHTML=d.body;
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('modal').focus();
+}
+function closeModal(e){
+  if(!e||e.target===document.getElementById('overlay'))
+    document.getElementById('overlay').classList.remove('open');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+// Keyboard support for nodes
+document.querySelectorAll('.node').forEach(n=>{
+  n.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();n.click()}});
+});
+</script>
+</body>
+</html>
